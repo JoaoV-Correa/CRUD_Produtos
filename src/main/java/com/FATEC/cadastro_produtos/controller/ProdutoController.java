@@ -24,9 +24,14 @@ public class ProdutoController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping
+    @GetMapping("/id")
     public ResponseEntity<Produto> findById(@RequestParam Integer id){
         return ResponseEntity.ok(produtosService.findById(id));
+    }
+
+    @GetMapping("/nome")
+    public ResponseEntity<Produto> findByNomeProduto(@RequestParam String nomeProduto){
+        return ResponseEntity.ok(produtosService.findByNomeProduto(nomeProduto));
     }
 
     @DeleteMapping

@@ -30,6 +30,13 @@ public class ProdutosService {
         );
     }
 
+    public Produto findByNomeProduto(String nomeProduto){
+        return repository.findByNomeProduto(nomeProduto).orElseThrow(
+                //criar mensagem de exceçao caso não exista esse produto
+                () -> new RuntimeException("Produto não encontrado")
+        );
+    }
+
     public void deleteById(Integer id){
         //deleta produto pelo Id
         repository.deleteById(id);
